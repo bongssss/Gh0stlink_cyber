@@ -65,7 +65,7 @@ http-title: `GhostLink :: Portal` or `http://192.168.1.81/`
 **Recon**
 
 Legacy synchronization Default credentials SecureGhostLink123 is still in effect
-![[dir fuzz.png]]
+![Directory Fuzzing Results](./dir_fuzz.png)
 performed a dir fuzz suing ghostbuster to find interesting links:
 `http://192.168.1.81/secure/`
 `http://192.168.1.81/secure/users.db.enc` : the database that likely contains user info that can be used to exploit the other services.
