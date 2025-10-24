@@ -13,7 +13,7 @@ This is a **learning-focused** capstone: think like an enterprise red team ope
 ### GhostLink Scan Report 
 
 
-![Ghostlink Landing page](./Ghostlink_presentaion_stuff/Ghostlink_HTTP.png.png)
+![Ghostlink Landing page](./Ghostlink_presentaion_stuff/Ghostlink_HTTP.png)
 ***Attack Log(Commands used for service exploitation)***
 
 1) -sn : 
