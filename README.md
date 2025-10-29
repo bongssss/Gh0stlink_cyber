@@ -1,7 +1,7 @@
 
-This exercise expect us to apply the skills gained to perform a controlled red-team style assessment of the host, chain together discovered vulnerabilities, and achieve root access on the target machine, demonstrating reconnaissance, credential discovery, service pivoting, and privilege escalation.
+This exercise expect us to apply penetration testig skills to perform a controlled red-team style assessment of the Ghostlink host, chain together discovered vulnerabilities, and achieve root access on the target machine, demonstrating reconnaissance, credential discovery, service pivoting, and privilege escalation.
 
-This is a **learning-focused** capstone: think like an enterprise red team operator, document your steps, justify your choices, and show the evidence that you reached each objective. Your goal is to **obtain a root shell** and collect proof of compromise.
+Think like an enterprise red team operator, document your steps, justify your choices, and show the evidence that you reached each objective. Your goal is to **obtain a root shell** and collect proof of compromise.
 
 
 **Deliver within your report:**
