@@ -120,6 +120,8 @@ I used the `echo 'password' | base64 -d` command to decode the passwords one by 
 | **e.morris**  | DevOps Engineer   | `T3Jpb25TZWN1cmU3Iw==`     | OrionSecure7#     |
 | **c.hopkins** | Network Engineer  | `Q2xvdWQhUmVkODg=`         | Cloud!Red88       |
 | **dev**       | FTP Administrator | `R2hvc3RTeW5jQEZUUCUxMjM=` | GhostSync@FTP%123 |
+
+
 The `dev` user is the most promising target for initial access as it's specifically the FTP Administrator.
 
 - Successfully gained FTP access:
