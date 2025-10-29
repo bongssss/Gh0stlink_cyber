@@ -125,7 +125,7 @@ I used the `echo 'password' | base64 -d` command to decode the passwords one by 
 The `dev` user is the most promising target for initial access as it's specifically the FTP Administrator.
 
 - Successfully gained FTP access:
-![[ftp success.png]]
+![inserting shell](./Ghostlink_presentaion_stuff/ftp_success.png)
 
  - Web shell and Initial foothold: I realised the ftp gave me access to upload/put files so I created a php web shell and put it in the list of folders using FTP
  ![inserting shell](./Ghostlink_presentaion_stuff/Insert_shell_v_ftp.png)
