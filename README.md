@@ -9,6 +9,7 @@ This is a **learning-focused** capstone: think like an enterprise red team ope
 1. Output proving you can read `/root/root.txt` (or equivalent root-only artefact).
 2. A short attack log (commands / tools used, in chronological order) that demonstrates your chain of compromise.
 3. A remediation section listing at least **three** concrete fixes for the issues you exploited.
+4. The link to download the vulnerable machine to a hypervisor is :[Here](https://drive.google.com/file/d/1J7i9yGWyIFysGiqyRbY7XMnyknfzxZ3C/view?usp=sharing)
 
 ### GhostLink Scan Report 
 
